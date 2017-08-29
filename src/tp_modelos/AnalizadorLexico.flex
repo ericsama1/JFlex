@@ -41,7 +41,9 @@ import static tp_modelos.TokenPersonalizado.*;
  Comparar = "=="
  FinLinea = ";"
  Coma = ","
- Simbolo = "*"|"+"|"-"|"/"|"#"
+ Simbolo = "*"|"+"|"-"|"/"|"#"|"("|")"|"{"|"}"
+ /*Parentesis = "(" {Digito}*{ID}* ")"
+ Llaves = "{" {LoD|SaltoDeLinea}* "}"*/
  Espacio = " "
  SaltoDeLinea = \n|\r|\r\n
  //aca comento las variables
@@ -97,12 +99,6 @@ import static tp_modelos.TokenPersonalizado.*;
  this._existenTokens = true;
  return t;
 }
-
-/*{Numero} {
- TokenPersonalizado t = new TokenPersonalizado(yytext(), "NUMERO");
- this._existenTokens = true;
- return t;
-}*/
  
 {Simbolo} {
  TokenPersonalizado t = new TokenPersonalizado(yytext(), "SIMBOLO");
@@ -120,3 +116,14 @@ import static tp_modelos.TokenPersonalizado.*;
  return t;
 }
 
+/*{Parentesis} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "SIMBOLO");
+ this._existenTokens = true;
+ return t;
+}
+
+{Llaves} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "SIMBOLO");
+ this._existenTokens = true;
+ return t;
+}*/
