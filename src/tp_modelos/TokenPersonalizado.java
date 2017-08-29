@@ -15,7 +15,7 @@ public class TokenPersonalizado {
   String _token;
   String _lexema;
   private String[] palabras_claves = {"DECVAR","ENDDEC",
-    "integer","Float","if","else","do","for"};
+    "integer","Float","if","else","do","for","while"};
  
   public String getLexema(){
     return this._lexema;
@@ -26,17 +26,32 @@ public class TokenPersonalizado {
   }
   
   TokenPersonalizado (String lexema, String token){
+    if (token == "SIMBOLO" || token == "ID"){
+        switch (token){
+            case ("SIMBOLO"): simbolo(lexema);
+            case ("ID"):{
+                if (Arrays.asList(palabras_claves).contains(lexema)){
+                    this._token = "Palabra_Clave";
+                }else this._token = token;
+            }
+        }
+    }else this._token = token;
     this._lexema = lexema;
-    //pregunto si el string q leo es una palabra clave
-    if (token == "ID" && Arrays.asList(palabras_claves).contains(lexema)){
-        this._token = "Palabra_Clave";
-    }
-    else{
-        this._token = token;
-    }
   }
  
   public String toString(){
     return "Lexema: " + this._lexema + " Token: " + this._token + ";";
   }
+  
+  public void simbolo(String lexema){
+    String token = "";
+        switch (lexema) {
+            case "+": this._token= "PLUS";
+            case "-": token = "MINUS";
+            case "*": token = "MULTI";
+            case "/": token = "DIV";
+            case "#": token = "COMMENT";
+        }
+  }
+  
 }
