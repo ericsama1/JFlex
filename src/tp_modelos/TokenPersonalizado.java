@@ -28,12 +28,17 @@ public class TokenPersonalizado {
   TokenPersonalizado (String lexema, String token){
     if (token == "SIMBOLO" || token == "ID"){
         switch (token){
-            case ("SIMBOLO"): simbolo(lexema);
+            case ("SIMBOLO"):{
+                simbolo(lexema);
+                break;
+            }
             case ("ID"):{
                 if (Arrays.asList(palabras_claves).contains(lexema)){
                     this._token = "Palabra_Clave";
                 }else this._token = token;
+                break;
             }
+            
         }
     }else this._token = token;
     this._lexema = lexema;
@@ -44,13 +49,12 @@ public class TokenPersonalizado {
   }
   
   public void simbolo(String lexema){
-    String token = "";
         switch (lexema) {
-            case "+": this._token= "PLUS";
-            case "-": token = "MINUS";
-            case "*": token = "MULTI";
-            case "/": token = "DIV";
-            case "#": token = "COMMENT";
+            case "+": {this._token= "PLUS"; break;}
+            case "-": {this._token = "MINUS"; break;}
+            case "*": {this._token = "MULTI"; break;}
+            case "/": {this._token = "DIV"; break;}
+            case "#": {this._token = "COMMENT"; break;}
         }
   }
   
