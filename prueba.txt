@@ -8,3 +8,16 @@ prueba12dsa
 -1212.2
 for 
 if
+DECVAR
+contador: Integer;
+promedio: Float;
+actual, suma: Float;
+ENDDEC
+actual: 999;
+suma: 02;
+contador: contador+1;
+ {
+contador: contador + 1;
+actual: (contador/0.342) + (contador*contador);
+suma: suma + actual;
+}
