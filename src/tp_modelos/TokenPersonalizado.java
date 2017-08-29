@@ -15,7 +15,7 @@ public class TokenPersonalizado {
   String _token;
   String _lexema;
   private String[] palabras_claves = {"DECVAR","ENDDEC",
-    "integer","Float","if","else","do","for","while","write"};
+    "integer","Float","if","else","do","for","while","write","not"};
  
   public String getLexema(){
     return this._lexema;
@@ -55,6 +55,16 @@ public class TokenPersonalizado {
             case "*": {this._token = "MULTI"; break;}
             case "/": {this._token = "DIV"; break;}
             case "#": {this._token = "COMMENT"; break;}
+            case ">": {this._token= "MAYOR"; break;}
+            case ">=": {this._token= "MAYORIGUAL"; break;}
+            case "<": {this._token= "MENOR"; break;}
+            case "<=": {this._token= "MENORIGUAL"; break;}
+            case "\"": {this._token= "COMILLAS"; break;}
+            case "!=": {this._token= "DISTINTO"; break;}
+            case "=": {this._token= "IGUAL"; break;}
+            case "&&": {this._token= "AND"; break;}
+            case "||": {this._token= "OR"; break;}
+            
         }
   }
   
