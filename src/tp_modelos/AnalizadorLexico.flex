@@ -41,7 +41,7 @@ import static tp_modelos.TokenPersonalizado.*;
  Comparar = "=="
  FinLinea = ";"
  Coma = ","
- Simbolo = "*"|"+"|"-"|"/"|"#"|"("|")"|"{"|"}"
+ Simbolo = "*"|"+"|"-"|"/"|"#"|"("|")"|"{"|"}"|"\""|"<"|"<="|">"|">="|"!"|"!="
  /*Parentesis = "(" {Digito}*{ID}* ")"
  Llaves = "{" {LoD|SaltoDeLinea}* "}"*/
  Espacio = " "

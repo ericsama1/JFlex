@@ -15,7 +15,7 @@ public class TokenPersonalizado {
   String _token;
   String _lexema;
   private String[] palabras_claves = {"DECVAR","ENDDEC",
-    "integer","Float","if","else","do","for","while"};
+    "integer","Float","if","else","do","for","while","write"};
  
   public String getLexema(){
     return this._lexema;
