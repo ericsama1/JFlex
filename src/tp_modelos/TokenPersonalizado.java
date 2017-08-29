@@ -14,7 +14,8 @@ import java.util.Arrays;
 public class TokenPersonalizado {
   String _token;
   String _lexema;
-  private String[] palabras_claves = {"if","else","do","for"};
+  private String[] palabras_claves = {"DECVAR","ENDDEC",
+    "integer","Float","if","else","do","for"};
  
   public String getLexema(){
     return this._lexema;

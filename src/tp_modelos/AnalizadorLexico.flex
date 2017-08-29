@@ -34,15 +34,19 @@ import static tp_modelos.TokenPersonalizado.*;
  
  Digito = [0-9]
  Numero = {Digito} {Digito}*
+ Entero = "-"?{Numero}
+ Real = {Entero} "." {Numero}
  Letra = [A-Za-z]
+ Asignar = ":"
+ Comparar = "=="
+ FinLinea = ";"
+ Coma = ","
  Simbolo = "*"|"+"|"-"|"/"|"#"
  Espacio = " "
  SaltoDeLinea = \n|\r|\r\n
  //aca comento las variables
  LoD = {Letra}|{Digito}
  ID = {Letra}{LoD}* 
- Real = "-"?{Digito}{Digito}* "." {Numero}
- Entero = "-"{Numero}
 /* Finaliza expresiones regulares */
  
 %%
@@ -54,6 +58,30 @@ import static tp_modelos.TokenPersonalizado.*;
  
 {ID} {
  TokenPersonalizado t = new TokenPersonalizado(yytext(), "ID");
+ this._existenTokens = true;
+ return t;
+} 
+
+{Asignar} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "Asignar");
+ this._existenTokens = true;
+ return t;
+}
+  
+{Comparar} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "Comparar");
+ this._existenTokens = true;
+ return t;
+}
+
+{Coma} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "Coma");
+ this._existenTokens = true;
+ return t;
+}
+ 
+{FinLinea} {
+ TokenPersonalizado t = new TokenPersonalizado(yytext(), "FinLinea");
  this._existenTokens = true;
  return t;
 }
@@ -70,11 +98,11 @@ import static tp_modelos.TokenPersonalizado.*;
  return t;
 }
 
-{Numero} {
+/*{Numero} {
  TokenPersonalizado t = new TokenPersonalizado(yytext(), "NUMERO");
  this._existenTokens = true;
  return t;
-}
+}*/
  
 {Simbolo} {
  TokenPersonalizado t = new TokenPersonalizado(yytext(), "SIMBOLO");
